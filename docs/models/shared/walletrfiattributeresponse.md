@@ -1,0 +1,10 @@
+# WalletRfiAttributeResponse
+
+
+## Fields
+
+| Field                                                                                                   | Type                                                                                                    | Required                                                                                                | Description                                                                                             |
+| ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| `label`                                                                                                 | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | This field contains the field label for the RFI.                                                        |
+| `type`                                                                                                  | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | This field contains the field type. The possible values are data or document.                           |
+| `value`                                                                                                 | *Optional[str]*                                                                                         | :heavy_minus_sign:                                                                                      | This field contains the field value for the RFI. This will be used while responding to transaction RFI. |
