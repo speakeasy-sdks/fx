@@ -7,7 +7,7 @@ from enum import Enum
 from fx import utils
 from typing import List, Optional
 
-class WalletAPIErrorStatus(str, Enum):
+class SchemasWalletAPIErrorStatus(str, Enum):
     r"""HttpStatus of the request : BAD_REQUEST, INTERNAL_SERVER_ERROR."""
     TWO_HUNDRED_OK = '200 OK'
     FOUR_HUNDRED_BAD_REQUEST = '400 BAD_REQUEST'
@@ -26,7 +26,7 @@ class WalletAPIError(Exception):
     r"""List of errors occurred."""
     message: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('message'), 'exclude': lambda f: f is None }})
     r"""Error message descriptor."""
-    status: Optional[WalletAPIErrorStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[SchemasWalletAPIErrorStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""HttpStatus of the request : BAD_REQUEST, INTERNAL_SERVER_ERROR."""
     
 

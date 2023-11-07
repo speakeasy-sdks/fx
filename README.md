@@ -15,7 +15,7 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/productionize-sdks/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
 <!-- Start SDK Installation -->
-# SDK Installation
+## SDK Installation
 
 ```bash
 pip install git+https://github.com/speakeasy-sdks/fx.git
@@ -24,8 +24,6 @@ pip install git+https://github.com/speakeasy-sdks/fx.git
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
-
-
 ```python
 import fx
 from fx.models import operations
@@ -33,37 +31,35 @@ from fx.models import operations
 s = fx.Fx()
 
 
-res = s.client_prefund_account.client_prefund_balances("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
-if res.account_response_dtos is not None:
+if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-# Available Resources and Operations
+## Available Resources and Operations
 
 
-## [client_prefund_account](docs/sdks/clientprefundaccount/README.md)
+### [.client_settings](docs/sdks/clientsettings/README.md)
+
+* [client_details](docs/sdks/clientsettings/README.md#client_details) - Client Details
+* [fee_details](docs/sdks/clientsettings/README.md#fee_details) - Fee Details
+
+### [.client_prefund_account](docs/sdks/clientprefundaccount/README.md)
 
 * [client_prefund_balances](docs/sdks/clientprefundaccount/README.md#client_prefund_balances) - Client Prefund Balances
 * [client_prefund_request](docs/sdks/clientprefundaccount/README.md#client_prefund_request) - Client Prefund Request
 * [fetch_client_prefund_request](docs/sdks/clientprefundaccount/README.md#fetch_client_prefund_request) - Fetch Client Prefund Request
 
-## [client_settings](docs/sdks/clientsettings/README.md)
-
-* [client_details](docs/sdks/clientsettings/README.md#client_details) - Client Details
-* [fee_details](docs/sdks/clientsettings/README.md#fee_details) - Fee Details
-
-## [client_transactions](docs/sdks/clienttransactions/README.md)
+### [.client_transactions](docs/sdks/clienttransactions/README.md)
 
 * [client_transactions](docs/sdks/clienttransactions/README.md#client_transactions) - Client Transactions
 <!-- End SDK Available Operations -->
 
 <!-- Start Dev Containers -->
-
-
 
 <!-- End Dev Containers -->
 
@@ -84,13 +80,13 @@ s = fx.Fx()
 
 res = None
 try:
-    res = s.client_prefund_account.client_prefund_balances("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+    res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
-except (WalletApiError) as e:
+except (ProductApiError) as e:
     print(e) # handle exception
 
 
-if res.account_response_dtos is not None:
+if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
@@ -109,19 +105,18 @@ You can override the default server globally by passing a server index to the `s
 
 For example:
 
-
 ```python
 import fx
 from fx.models import operations
 
 s = fx.Fx(
-    server_idx=0
+    server_idx=0,
 )
 
 
-res = s.client_prefund_account.client_prefund_balances("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
-if res.account_response_dtos is not None:
+if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
@@ -131,19 +126,18 @@ if res.account_response_dtos is not None:
 
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 
-
 ```python
 import fx
 from fx.models import operations
 
 s = fx.Fx(
-    server_url="https://gatewaysandbox.nium.com/"
+    server_url="https://gatewaysandbox.nium.com/",
 )
 
 
-res = s.client_prefund_account.client_prefund_balances("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
-if res.account_response_dtos is not None:
+if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
@@ -165,9 +159,56 @@ http_client = requests.Session()
 http_client.headers.update({'x-custom-header': 'someValue'})
 s = fx.Fx(client: http_client)
 ```
-
-
 <!-- End Custom HTTP Client -->
+
+
+
+<!-- Start Authentication -->
+
+# Authentication
+
+## Per-Client Security Schemes
+
+Your SDK supports the following security scheme globally:
+
+| Name      | Type      | Scheme    |
+| --------- | --------- | --------- |
+| `default` | apiKey    | API key   |
+
+To authenticate with the API the `default` parameter must be set when initializing the SDK client instance. For example:
+
+```python
+import fx
+from fx.models import operations
+
+s = fx.Fx()
+
+
+res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+
+if res.client_detail_response_dto2 is not None:
+    # handle response
+    pass
+```
+
+## Per-Operation Security Schemes
+
+Some operations in your SDK require the security scheme to be specified at the request level. For example:
+
+```python
+import fx
+from fx.models import operations
+
+s = fx.Fx()
+
+
+res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+
+if res.client_detail_response_dto2 is not None:
+    # handle response
+    pass
+```
+<!-- End Authentication -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 

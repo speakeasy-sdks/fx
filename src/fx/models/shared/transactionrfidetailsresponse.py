@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import walletrfiattributeresponse as shared_walletrfiattributeresponse
+from .walletrfiattributeresponse import WalletRfiAttributeResponse
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from fx import utils
 from typing import List, Optional
 
-class TransactionRfiDetailsResponseRfiStatus(str, Enum):
+class RfiStatus(str, Enum):
     r"""This field contains Transaction RFI status."""
     NONE = 'NONE'
     IN_PROGRESS = 'IN_PROGRESS'
@@ -25,7 +25,7 @@ class TransactionRfiDetailsResponseRfiStatus(str, Enum):
     CLEAR = 'CLEAR'
     CLOSED = 'CLOSED'
 
-class TransactionRfiDetailsResponseTransactionEntityType(str, Enum):
+class TransactionEntityType(str, Enum):
     r"""This field contains the type of the transaction entity. The possible values are:
     DEBTOR
     CREDITOR
@@ -45,15 +45,15 @@ class TransactionRfiDetailsResponse:
     r"""This flag signifies if the RFI is mandatory or not."""
     remarks: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('remarks'), 'exclude': lambda f: f is None }})
     r"""This field contains the remarks provided while raising the RFI."""
-    required_data: Optional[List[shared_walletrfiattributeresponse.WalletRfiAttributeResponse]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('requiredData'), 'exclude': lambda f: f is None }})
+    required_data: Optional[List[WalletRfiAttributeResponse]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('requiredData'), 'exclude': lambda f: f is None }})
     r"""This array contains the required data for the RFI."""
     rfi_hash_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rfiHashId'), 'exclude': lambda f: f is None }})
     r"""This field contains the unique RFI hash ID."""
     rfi_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rfiId'), 'exclude': lambda f: f is None }})
     r"""This field contains the unique identifier for group of RFI raised for the customer transaction."""
-    rfi_status: Optional[TransactionRfiDetailsResponseRfiStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rfiStatus'), 'exclude': lambda f: f is None }})
+    rfi_status: Optional[RfiStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rfiStatus'), 'exclude': lambda f: f is None }})
     r"""This field contains Transaction RFI status."""
-    transaction_entity_type: Optional[TransactionRfiDetailsResponseTransactionEntityType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactionEntityType'), 'exclude': lambda f: f is None }})
+    transaction_entity_type: Optional[TransactionEntityType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactionEntityType'), 'exclude': lambda f: f is None }})
     r"""This field contains the type of the transaction entity. The possible values are:
     DEBTOR
     CREDITOR

@@ -13,7 +13,7 @@ class PaymentIdsDTOAccountType(str, Enum):
     GLOBAL = 'GLOBAL'
     LOCAL_PLUS_GLOBAL = 'LOCAL+GLOBAL'
 
-class PaymentIdsDTOBankName(str, Enum):
+class BankName(str, Enum):
     r"""This field contains the bank name.The possible values are:"""
     BOL_LT = 'BOL_LT'
     MONOOVA_AU = 'MONOOVA_AU'
@@ -34,7 +34,7 @@ class PaymentIdsDTO:
     r"""This field contains the type of an account."""
     bank_address: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bankAddress'), 'exclude': lambda f: f is None }})
     r"""This field contains the full address of the bank."""
-    bank_name: Optional[PaymentIdsDTOBankName] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bankName'), 'exclude': lambda f: f is None }})
+    bank_name: Optional[BankName] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bankName'), 'exclude': lambda f: f is None }})
     r"""This field contains the bank name.The possible values are:"""
     bank_name_full: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bankNameFull'), 'exclude': lambda f: f is None }})
     r"""This field contains the full name of the bank."""

@@ -9,7 +9,7 @@ from enum import Enum
 from fx import utils
 from typing import Optional
 
-class AccountResponseDTOAccountType(str, Enum):
+class AccountType(str, Enum):
     r"""This field contains the name of the currency pool, for example, \\"currency pool\\"."""
     NIUM_POOL = 'NIUM_POOL'
     CLIENT_POOL = 'CLIENT_POOL'
@@ -28,7 +28,7 @@ class AccountResponseDTOAccountType(str, Enum):
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class AccountResponseDTO:
-    account_type: Optional[AccountResponseDTOAccountType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accountType'), 'exclude': lambda f: f is None }})
+    account_type: Optional[AccountType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('accountType'), 'exclude': lambda f: f is None }})
     r"""This field contains the name of the currency pool, for example, \\"currency pool\\"."""
     balance: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('balance'), 'exclude': lambda f: f is None }})
     r"""This field contains the available balance in the pool mentioned in accountType field."""

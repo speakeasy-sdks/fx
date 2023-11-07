@@ -2,34 +2,34 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import autosweepbankdetails as shared_autosweepbankdetails
-from ..shared import clientcurrencyresponsedto as shared_clientcurrencyresponsedto
-from ..shared import paymentidsdto as shared_paymentidsdto
-from ..shared import remitteraccountwhitelist as shared_remitteraccountwhitelist
+from .autosweepbankdetails import AutoSweepBankDetails
+from .clientcurrencyresponsedto import ClientCurrencyResponseDTO
+from .paymentidsdto import PaymentIdsDTO
+from .remitteraccountwhitelist import RemitterAccountWhiteList
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from fx import utils
 from typing import List, Optional
 
-class ClientDetailResponseDto2CurrencyAuthorizationType(str, Enum):
+class CurrencyAuthorizationType(str, Enum):
     r"""This field denotes the authorization type of a client. The valid values are SINGLE, DUAL, MULTI, and AUTO_SWEEP."""
     SINGLE = 'SINGLE'
     DUAL = 'DUAL'
     MULTI = 'MULTI'
     AUTO_SWEEP = 'AUTO_SWEEP'
 
-class ClientDetailResponseDto2FundingInstrumentType(str, Enum):
+class FundingInstrumentType(str, Enum):
     r"""This field is used to define whether the customer is allowed to fund their wallet or not. If yes that is not RESTRICTED, then either using DEBIT CARD or both DEBIT and CREDIT cards."""
     RESTRICTED = 'RESTRICTED'
     ONLY_DEBIT = 'ONLY_DEBIT'
     CREDIT_AND_DEBIT = 'CREDIT_AND_DEBIT'
 
-class ClientDetailResponseDto2LicenseEntity(str, Enum):
+class LicenseEntity(str, Enum):
     r"""This field contains the license ownership for a client.The possible values are:"""
     NIUM = 'NIUM'
     THIRD_PARTY = 'THIRD_PARTY'
 
-class ClientDetailResponseDto2RegulatoryRegion(str, Enum):
+class RegulatoryRegion(str, Enum):
     r"""This field contains the regulatory region of the client."""
     SG = 'SG'
     EU = 'EU'
@@ -49,7 +49,7 @@ class ClientDetailResponseDto2:
     r"""This field specifies if third party funding is allowed or not."""
     apple_pay_support: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('applePaySupport'), 'exclude': lambda f: f is None }})
     r"""This field contains the flag for apple pay support."""
-    auto_sweep_bank_details: Optional[shared_autosweepbankdetails.AutoSweepBankDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('autoSweepBankDetails'), 'exclude': lambda f: f is None }})
+    auto_sweep_bank_details: Optional[AutoSweepBankDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('autoSweepBankDetails'), 'exclude': lambda f: f is None }})
     billing_address_as_corporate: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('billingAddressAsCorporate'), 'exclude': lambda f: f is None }})
     r"""This field indicates whether an individual customer at the child level should have the same billing address as the business address of the corporate customer at the parent level."""
     card_txn_narrative: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('cardTxnNarrative'), 'exclude': lambda f: f is None }})
@@ -74,9 +74,9 @@ class ClientDetailResponseDto2:
     r"""This field contains the client's contact number."""
     country_code: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('countryCode'), 'exclude': lambda f: f is None }})
     r"""This field contains the 3-letter ISO-4217 currency code."""
-    currencies: Optional[List[shared_clientcurrencyresponsedto.ClientCurrencyResponseDTO]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currencies'), 'exclude': lambda f: f is None }})
+    currencies: Optional[List[ClientCurrencyResponseDTO]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currencies'), 'exclude': lambda f: f is None }})
     r"""This is an array objects which holds currency details."""
-    currency_authorization_type: Optional[ClientDetailResponseDto2CurrencyAuthorizationType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currencyAuthorizationType'), 'exclude': lambda f: f is None }})
+    currency_authorization_type: Optional[CurrencyAuthorizationType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currencyAuthorizationType'), 'exclude': lambda f: f is None }})
     r"""This field denotes the authorization type of a client. The valid values are SINGLE, DUAL, MULTI, and AUTO_SWEEP."""
     customer_auth_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customerAuthUrl'), 'exclude': lambda f: f is None }})
     r"""This field contains the customer authorization URL."""
@@ -87,11 +87,11 @@ class ClientDetailResponseDto2:
     ekyc_redirect_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ekycRedirectUrl'), 'exclude': lambda f: f is None }})
     email: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('email'), 'exclude': lambda f: f is None }})
     r"""This field contains the client's email Id."""
-    funding_instrument_type: Optional[ClientDetailResponseDto2FundingInstrumentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fundingInstrumentType'), 'exclude': lambda f: f is None }})
+    funding_instrument_type: Optional[FundingInstrumentType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fundingInstrumentType'), 'exclude': lambda f: f is None }})
     r"""This field is used to define whether the customer is allowed to fund their wallet or not. If yes that is not RESTRICTED, then either using DEBIT CARD or both DEBIT and CREDIT cards."""
     google_pay_support: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('googlePaySupport'), 'exclude': lambda f: f is None }})
     r"""This field contains the flag for google pay support."""
-    license_entity: Optional[ClientDetailResponseDto2LicenseEntity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('licenseEntity'), 'exclude': lambda f: f is None }})
+    license_entity: Optional[LicenseEntity] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('licenseEntity'), 'exclude': lambda f: f is None }})
     r"""This field contains the license ownership for a client.The possible values are:"""
     logo_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('logoUrl'), 'exclude': lambda f: f is None }})
     r"""This field contains the client's logo URL."""
@@ -103,17 +103,17 @@ class ClientDetailResponseDto2:
     r"""This field contains the name of a client."""
     notification_webhook: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('notificationWebhook'), 'exclude': lambda f: f is None }})
     r"""This field contains the Webhook notification redirection URL."""
-    payment_ids: Optional[List[shared_paymentidsdto.PaymentIdsDTO]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paymentIds'), 'exclude': lambda f: f is None }})
+    payment_ids: Optional[List[PaymentIdsDTO]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('paymentIds'), 'exclude': lambda f: f is None }})
     r"""This is an array object which holds the client payment Id response details."""
     post_funded_payout: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('postFundedPayout'), 'exclude': lambda f: f is None }})
     r"""This field contains the Post Funded Payout of the client."""
     prefund_name: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('prefundName'), 'exclude': lambda f: f is None }})
     r"""This field contains the name defined for ICC transactions"""
-    regulatory_region: Optional[ClientDetailResponseDto2RegulatoryRegion] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('regulatoryRegion'), 'exclude': lambda f: f is None }})
+    regulatory_region: Optional[RegulatoryRegion] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('regulatoryRegion'), 'exclude': lambda f: f is None }})
     r"""This field contains the regulatory region of the client."""
     samsung_pay_support: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('samsungPaySupport'), 'exclude': lambda f: f is None }})
     r"""This field contains the flag for samsung pay support."""
-    whitelisted_remitter_accounts: Optional[List[shared_remitteraccountwhitelist.RemitterAccountWhiteList]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('whitelistedRemitterAccounts'), 'exclude': lambda f: f is None }})
+    whitelisted_remitter_accounts: Optional[List[RemitterAccountWhiteList]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('whitelistedRemitterAccounts'), 'exclude': lambda f: f is None }})
     r"""This is an array object which holds the remitter accounts which are whitelisted for the client."""
     
 

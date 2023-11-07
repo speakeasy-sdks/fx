@@ -11,10 +11,10 @@ from typing import Dict
 
 class Fx:
     r"""NIUM Platform: NIUM Platform"""
-    client_prefund_account: ClientPrefundAccount
-    r"""REST API's for Client Prefund Account"""
     client_settings: ClientSettings
     r"""REST API's for Client Settings"""
+    client_prefund_account: ClientPrefundAccount
+    r"""REST API's for Client Prefund Account"""
     client_transactions: ClientTransactions
     r"""REST API's for Client Prefund Account"""
 
@@ -59,7 +59,7 @@ class Fx:
         self._init_sdks()
     
     def _init_sdks(self):
-        self.client_prefund_account = ClientPrefundAccount(self.sdk_configuration)
         self.client_settings = ClientSettings(self.sdk_configuration)
+        self.client_prefund_account = ClientPrefundAccount(self.sdk_configuration)
         self.client_transactions = ClientTransactions(self.sdk_configuration)
     

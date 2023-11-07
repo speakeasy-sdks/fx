@@ -1,4 +1,4 @@
-# PaymentIdsDTOBankName
+# BankName
 
 This field contains the bank name.The possible values are:
 

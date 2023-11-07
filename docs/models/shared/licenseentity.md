@@ -1,4 +1,4 @@
-# ClientDetailResponseDto2LicenseEntity
+# LicenseEntity
 
 This field contains the license ownership for a client.The possible values are:
 

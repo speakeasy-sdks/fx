@@ -3,14 +3,14 @@
 from __future__ import annotations
 import dataclasses
 import dateutil.parser
-from ..shared import transactionrfidetailsresponse as shared_transactionrfidetailsresponse
+from .transactionrfidetailsresponse import TransactionRfiDetailsResponse
 from dataclasses_json import Undefined, dataclass_json
 from datetime import datetime
 from enum import Enum
 from fx import utils
 from typing import Dict, List, Optional
 
-class TransactionResponseDTOComplianceStatus(str, Enum):
+class ComplianceStatus(str, Enum):
     r"""This field contains the compliance status of the transaction.The possible values are:
     NULL
     IN_PROGRESS
@@ -37,7 +37,7 @@ class TransactionResponseDTOComplianceStatus(str, Enum):
     CLEAR = 'CLEAR'
     CLOSED = 'CLOSED'
 
-class TransactionResponseDTOSettlementStatus(str, Enum):
+class SettlementStatus(str, Enum):
     r"""This field contains the settlement status.This field can take the following values:
     Unsettled
     Settled
@@ -95,7 +95,7 @@ class TransactionResponseDTOStatus(str, Enum):
     SCHEDULED = 'SCHEDULED'
     NA = 'NA'
 
-class TransactionResponseDTOTransactionType(str, Enum):
+class TransactionType(str, Enum):
     r"""This field contains the transaction can be one of the complete list of transactions mentioned in [Transaction Types](doc:transactions#transaction-types)."""
     DEBIT = 'Debit'
     REVERSAL = 'Reversal'
@@ -194,7 +194,7 @@ class TransactionResponseDTO:
     r"""Unique client identifier generated and shared before API handshake."""
     comments: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('comments'), 'exclude': lambda f: f is None }})
     r"""This field contains the auto-generated comments with details on the transactions such as reason for transaction decline."""
-    compliance_status: Optional[TransactionResponseDTOComplianceStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('complianceStatus'), 'exclude': lambda f: f is None }})
+    compliance_status: Optional[ComplianceStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('complianceStatus'), 'exclude': lambda f: f is None }})
     r"""This field contains the compliance status of the transaction.The possible values are:
     NULL
     IN_PROGRESS
@@ -313,7 +313,7 @@ class TransactionResponseDTO:
     """
     retrieval_reference_number: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('retrievalReferenceNumber'), 'exclude': lambda f: f is None }})
     r"""This field contains the 12 digit number that is used with other data elements as a key to identify and track all messages related to a given customer transaction."""
-    rfi_details: Optional[List[shared_transactionrfidetailsresponse.TransactionRfiDetailsResponse]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rfiDetails'), 'exclude': lambda f: f is None }})
+    rfi_details: Optional[List[TransactionRfiDetailsResponse]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rfiDetails'), 'exclude': lambda f: f is None }})
     r"""This field is an array that holds RFI details."""
     rha_transaction_id: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('rhaTransactionId'), 'exclude': lambda f: f is None }})
     r"""This field contains the transaction Id for an RHA client."""
@@ -325,7 +325,7 @@ class TransactionResponseDTO:
     settlement_currency: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('settlementCurrency'), 'exclude': lambda f: f is None }})
     settlement_date: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('settlementDate'), 'exclude': lambda f: f is None }})
     r"""This field contains the settlement date in case of a Settled transaction. Otherwise, it is null."""
-    settlement_status: Optional[TransactionResponseDTOSettlementStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('settlementStatus'), 'exclude': lambda f: f is None }})
+    settlement_status: Optional[SettlementStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('settlementStatus'), 'exclude': lambda f: f is None }})
     r"""This field contains the settlement status.This field can take the following values:
     Unsettled
     Settled
@@ -354,7 +354,7 @@ class TransactionResponseDTO:
     r"""This field contains the 3-letter [ISO-4217 currency code](doc:currency-and-country-codes) for the transaction currency."""
     transaction_replacement_amount: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactionReplacementAmount'), 'exclude': lambda f: f is None }})
     r"""The corrected amount of a transaction in a partial reversal. This is defined by ISO-8583 as a fixed length field with four subfields, but only the first subfield is used. A 12 position field for the corrected, actual amount of a customer's transaction, in the transaction currency. The field is right justified, with lead zero fill."""
-    transaction_type: Optional[TransactionResponseDTOTransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactionType'), 'exclude': lambda f: f is None }})
+    transaction_type: Optional[TransactionType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('transactionType'), 'exclude': lambda f: f is None }})
     r"""This field contains the transaction can be one of the complete list of transactions mentioned in [Transaction Types](doc:transactions#transaction-types)."""
     updated_at: Optional[datetime] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('updatedAt'), 'encoder': utils.datetimeisoformat(True), 'decoder': dateutil.parser.isoparse, 'exclude': lambda f: f is None }})
     r"""This field contains the date and time when the transaction was last updated in UTC."""

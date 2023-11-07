@@ -2,6 +2,7 @@
 
 from .payinapierror import *
 from .productapierror import *
+from .sdkerror import *
 from .walletapierror import *
-from .sdkerror import SDKError
-__all__ = ["PayinAPIError","PayinAPIErrorStatus","ProductAPIError","ProductAPIErrorStatus","WalletAPIError","WalletAPIErrorStatus","SDKError"]
+
+__all__ = ["PayinAPIError","ProductAPIError","SDKError","SchemasStatus","SchemasWalletAPIErrorStatus","Status","WalletAPIError"]

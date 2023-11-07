@@ -7,7 +7,7 @@ from enum import Enum
 from fx import utils
 from typing import List, Optional
 
-class PayinAPIErrorStatus(str, Enum):
+class Status(str, Enum):
     r"""HttpStatus of the request : BAD_REQUEST, INTERNAL_SERVER_ERROR."""
     ONE_HUNDRED_CONTINUE = '100 CONTINUE'
     ONE_HUNDRED_AND_ONE_SWITCHING_PROTOCOLS = '101 SWITCHING_PROTOCOLS'
@@ -87,7 +87,7 @@ class PayinAPIError(Exception):
     r"""List of errors occurred."""
     message: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('message'), 'exclude': lambda f: f is None }})
     r"""Error message descriptor."""
-    status: Optional[PayinAPIErrorStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[Status] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""HttpStatus of the request : BAD_REQUEST, INTERNAL_SERVER_ERROR."""
     
 

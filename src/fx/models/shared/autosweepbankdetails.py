@@ -2,8 +2,8 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import bankaccountdetails as shared_bankaccountdetails
-from ..shared import registeredaddress as shared_registeredaddress
+from .bankaccountdetails import BankAccountDetails
+from .registeredaddress import RegisteredAddress
 from dataclasses_json import Undefined, dataclass_json
 from fx import utils
 from typing import Optional
@@ -12,7 +12,7 @@ from typing import Optional
 @dataclass_json(undefined=Undefined.EXCLUDE)
 @dataclasses.dataclass
 class AutoSweepBankDetails:
-    bank_account_details: Optional[shared_bankaccountdetails.BankAccountDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bankAccountDetails'), 'exclude': lambda f: f is None }})
-    client_registered_address: Optional[shared_registeredaddress.RegisteredAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('clientRegisteredAddress'), 'exclude': lambda f: f is None }})
+    bank_account_details: Optional[BankAccountDetails] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('bankAccountDetails'), 'exclude': lambda f: f is None }})
+    client_registered_address: Optional[RegisteredAddress] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('clientRegisteredAddress'), 'exclude': lambda f: f is None }})
     
 

@@ -7,7 +7,7 @@ from enum import Enum
 from fx import utils
 from typing import Optional
 
-class FeeResponseDTOFeeName(str, Enum):
+class FeeName(str, Enum):
     r"""This field contains the name of the fee or markup."""
     ATM_FEE = 'ATM_FEE'
     ECOM_FEE = 'ECOM_FEE'
@@ -90,7 +90,7 @@ class FeeResponseDTO:
     r"""This field contains the 3-letter [ISO-4217 authorization currency code](doc:currency-and-country-codes)."""
     fee_currency: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('feeCurrency'), 'exclude': lambda f: f is None }})
     r"""This field contains the 3-letter [ISO-4217 fee currency code](doc:currency-and-country-codes)."""
-    fee_name: Optional[FeeResponseDTOFeeName] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('feeName'), 'exclude': lambda f: f is None }})
+    fee_name: Optional[FeeName] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('feeName'), 'exclude': lambda f: f is None }})
     r"""This field contains the name of the fee or markup."""
     fee_value: Optional[float] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('feeValue'), 'exclude': lambda f: f is None }})
     r"""This field contains the actual value of the fee. It can be an amount or percentage."""

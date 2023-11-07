@@ -2,13 +2,13 @@
 
 from __future__ import annotations
 import dataclasses
-from ..shared import feeresponsedto as shared_feeresponsedto
+from .feeresponsedto import FeeResponseDTO
 from dataclasses_json import Undefined, dataclass_json
 from enum import Enum
 from fx import utils
 from typing import List, Optional
 
-class ClientFeeDetailsResponseDTOStatus(str, Enum):
+class Status(str, Enum):
     r"""This field contains the status and the possible values are:
     Active
     Inactive
@@ -38,11 +38,11 @@ class ClientFeeDetailsResponseDTOStatus(str, Enum):
 @dataclasses.dataclass
 class ClientFeeDetailsResponseDTO:
     default: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('default'), 'exclude': lambda f: f is None }})
-    fees: Optional[List[shared_feeresponsedto.FeeResponseDTO]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fees'), 'exclude': lambda f: f is None }})
+    fees: Optional[List[FeeResponseDTO]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('fees'), 'exclude': lambda f: f is None }})
     r"""This is an array which contains the fees details."""
     segment: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('segment'), 'exclude': lambda f: f is None }})
     r"""This field contains the fee segment associated with a client."""
-    status: Optional[ClientFeeDetailsResponseDTOStatus] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
+    status: Optional[Status] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('status'), 'exclude': lambda f: f is None }})
     r"""This field contains the status and the possible values are:
     Active
     Inactive

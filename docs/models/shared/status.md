@@ -1,4 +1,4 @@
-# ClientFeeDetailsResponseDTOStatus
+# Status
 
 This field contains the status and the possible values are:
 Active

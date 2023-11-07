@@ -1,4 +1,4 @@
-# ClientTransactionsStatus
+# Status
 
 This parameter can filter the transactions based on status. The detailed list of possible values is available in the response of this API.
 

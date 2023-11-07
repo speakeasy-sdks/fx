@@ -1,4 +1,4 @@
-# TransactionResponseDTOTransactionType
+# TransactionType
 
 This field contains the transaction can be one of the complete list of transactions mentioned in [Transaction Types](doc:transactions#transaction-types).
 

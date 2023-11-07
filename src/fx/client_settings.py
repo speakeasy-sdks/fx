@@ -82,7 +82,7 @@ class ClientSettings:
         if http_res.status_code == 200:
             if utils.match_content_type(content_type, 'application/json'):
                 out = utils.unmarshal_json(http_res.text, Optional[List[shared.ClientFeeDetailsResponseDTO]])
-                res.client_fee_details_response_dtos = out
+                res.two_hundred_application_json_classes = out
             else:
                 raise errors.SDKError(f'unknown content-type received: {content_type}', http_res.status_code, http_res.text, http_res)
         elif http_res.status_code in [400, 404, 500]:

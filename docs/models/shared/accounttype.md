@@ -1,4 +1,4 @@
-# AccountResponseDTOAccountType
+# AccountType
 
 This field contains the name of the currency pool, for example, "currency pool".
 

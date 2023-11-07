@@ -1,4 +1,4 @@
-# TransactionRfiDetailsResponseTransactionEntityType
+# TransactionEntityType
 
 This field contains the type of the transaction entity. The possible values are:
 DEBTOR

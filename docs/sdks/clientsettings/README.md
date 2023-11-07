@@ -1,5 +1,5 @@
 # ClientSettings
-(*client_settings*)
+(*.client_settings*)
 
 ## Overview
 
@@ -60,7 +60,7 @@ s = fx.Fx()
 
 res = s.client_settings.fee_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
-if res.client_fee_details_response_dtos is not None:
+if res.two_hundred_application_json_classes is not None:
     # handle response
     pass
 ```

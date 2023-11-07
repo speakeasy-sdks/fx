@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import clientfeedetailsresponsedto as shared_clientfeedetailsresponsedto
+from ...models.shared import clientfeedetailsresponsedto as shared_clientfeedetailsresponsedto
 from typing import List, Optional
 
 
@@ -30,7 +30,7 @@ class FeeDetailsResponse:
     r"""HTTP response content type for this operation"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    client_fee_details_response_dtos: Optional[List[shared_clientfeedetailsresponsedto.ClientFeeDetailsResponseDTO]] = dataclasses.field(default=None)
+    two_hundred_application_json_classes: Optional[List[shared_clientfeedetailsresponsedto.ClientFeeDetailsResponseDTO]] = dataclasses.field(default=None)
     r"""OK"""
     raw_response: Optional[requests_http.Response] = dataclasses.field(default=None)
     r"""Raw HTTP response; suitable for custom response parsing"""

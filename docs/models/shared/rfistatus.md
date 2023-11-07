@@ -1,15 +1,6 @@
-# TransactionResponseDTOComplianceStatus
+# RfiStatus
 
-This field contains the compliance status of the transaction.The possible values are:
-NULL
-IN_PROGRESS
-ACTION_REQUIRED
-RFI_REQUESTED
-RFI_RESPONDED
-COMPLETED
-ERROR
-REJECT
-EXPIRED
+This field contains Transaction RFI status.
 
 
 ## Values

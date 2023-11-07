@@ -1,4 +1,4 @@
-# ClientDetailResponseDto2RegulatoryRegion
+# RegulatoryRegion
 
 This field contains the regulatory region of the client.
 

@@ -1,4 +1,4 @@
-# PayinAPIErrorStatus
+# Status
 
 HttpStatus of the request : BAD_REQUEST, INTERNAL_SERVER_ERROR.
 

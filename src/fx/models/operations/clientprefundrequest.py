@@ -3,8 +3,8 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import clientprefundresponsedto as shared_clientprefundresponsedto
-from ..shared import prefundrequestdto as shared_prefundrequestdto
+from ...models.shared import clientprefundresponsedto as shared_clientprefundresponsedto
+from ...models.shared import prefundrequestdto as shared_prefundrequestdto
 from typing import Optional
 
 

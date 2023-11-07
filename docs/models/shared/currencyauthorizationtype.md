@@ -1,4 +1,4 @@
-# ClientDetailResponseDto2CurrencyAuthorizationType
+# CurrencyAuthorizationType
 
 This field denotes the authorization type of a client. The valid values are SINGLE, DUAL, MULTI, and AUTO_SWEEP.
 

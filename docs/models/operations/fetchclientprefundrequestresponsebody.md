@@ -1,4 +1,4 @@
-# FetchClientPrefundRequest200ApplicationJSON
+# FetchClientPrefundRequestResponseBody
 
 OK
 

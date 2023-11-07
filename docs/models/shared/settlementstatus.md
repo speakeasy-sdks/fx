@@ -1,4 +1,4 @@
-# TransactionResponseDTOSettlementStatus
+# SettlementStatus
 
 This field contains the settlement status.This field can take the following values:
 Unsettled

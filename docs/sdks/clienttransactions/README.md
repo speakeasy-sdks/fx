@@ -1,5 +1,5 @@
 # ClientTransactions
-(*client_transactions*)
+(*.client_transactions*)
 
 ## Overview
 

@@ -1,4 +1,4 @@
-# FeeResponseDTOFeeName
+# FeeName
 
 This field contains the name of the fee or markup.
 

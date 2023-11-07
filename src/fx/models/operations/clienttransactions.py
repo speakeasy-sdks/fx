@@ -3,7 +3,7 @@
 from __future__ import annotations
 import dataclasses
 import requests as requests_http
-from ..shared import clienttransactionsresponsedto as shared_clienttransactionsresponsedto
+from ...models.shared import clienttransactionsresponsedto as shared_clienttransactionsresponsedto
 from enum import Enum
 from typing import Optional
 
@@ -14,12 +14,12 @@ class ClientTransactionsSecurity:
     
 
 
-class ClientTransactionsOrder(str, Enum):
+class Order(str, Enum):
     r"""The sort order for the results."""
     ASC = 'ASC'
     DESC = 'DESC'
 
-class ClientTransactionsStatus(str, Enum):
+class Status(str, Enum):
     r"""This parameter can filter the transactions based on status. The detailed list of possible values is available in the response of this API."""
     NULL = 'NULL'
     IN_PROGRESS = 'IN_PROGRESS'
@@ -65,7 +65,7 @@ class ClientTransactionsRequest:
     r"""This parameter can filter the transactions based on the merchant country field."""
     merchant_name: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'merchantName', 'style': 'form', 'explode': True }})
     r"""This parameter can filter the transactions based on the merchant name field."""
-    order: Optional[ClientTransactionsOrder] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'order', 'style': 'form', 'explode': True }})
+    order: Optional[Order] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'order', 'style': 'form', 'explode': True }})
     r"""The sort order for the results."""
     page: Optional[int] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'page', 'style': 'form', 'explode': True }})
     r"""This API may have lot of data in response and supports pagination. Entire response data is divided into pages with size as the upper limit on the number of data. Integer values from 0 onwards are acceptable.\nDefault page is 0."""
@@ -81,7 +81,7 @@ class ClientTransactionsRequest:
     r"""This will decide the number of elements per page. Typical values can be 1-20."""
     start_date: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'startDate', 'style': 'form', 'explode': True }})
     r"""From date for fetching the transaction details. The format for startDate is YYYY-MM-DD."""
-    status: Optional[ClientTransactionsStatus] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'status', 'style': 'form', 'explode': True }})
+    status: Optional[Status] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'status', 'style': 'form', 'explode': True }})
     r"""This parameter can filter the transactions based on status. The detailed list of possible values is available in the response of this API."""
     system_trace_audit_number: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'systemTraceAuditNumber', 'style': 'form', 'explode': True }})
     r"""This parameter can filter the transactions based on systemTraceAuditNumber."""
