@@ -1,5 +1,5 @@
 # ClientTransactions
-(*.client_transactions*)
+(*client_transactions*)
 
 ## Overview
 
@@ -44,4 +44,9 @@ if res.client_transactions_response_dto is not None:
 ### Response
 
 **[operations.ClientTransactionsResponse](../../models/operations/clienttransactionsresponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.WalletAPIError | 400,404,500           | application/json      |
+| errors.SDKError       | 400-600               | */*                   |

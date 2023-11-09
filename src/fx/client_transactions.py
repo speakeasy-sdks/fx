@@ -13,6 +13,7 @@ class ClientTransactions:
         self.sdk_configuration = sdk_config
         
     
+    
     def client_transactions(self, request: operations.ClientTransactionsRequest, security: operations.ClientTransactionsSecurity) -> operations.ClientTransactionsResponse:
         r"""Client Transactions
         This API allows you to fetch transaction details at the client level.

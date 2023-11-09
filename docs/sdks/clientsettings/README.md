@@ -1,5 +1,5 @@
 # ClientSettings
-(*.client_settings*)
+(*client_settings*)
 
 ## Overview
 
@@ -42,7 +42,12 @@ if res.client_detail_response_dto2 is not None:
 ### Response
 
 **[operations.ClientDetailsResponse](../../models/operations/clientdetailsresponse.md)**
+### Errors
 
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ProductAPIError | 400,404,500            | application/json       |
+| errors.SDKError        | 400-600                | */*                    |
 
 ## fee_details
 
@@ -77,4 +82,9 @@ if res.two_hundred_application_json_classes is not None:
 ### Response
 
 **[operations.FeeDetailsResponse](../../models/operations/feedetailsresponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.WalletAPIError | 400,404,500           | application/json      |
+| errors.SDKError       | 400-600               | */*                   |

@@ -1,5 +1,5 @@
 # ClientPrefundAccount
-(*.client_prefund_account*)
+(*client_prefund_account*)
 
 ## Overview
 
@@ -43,7 +43,12 @@ if res.two_hundred_application_json_classes is not None:
 ### Response
 
 **[operations.ClientPrefundBalancesResponse](../../models/operations/clientprefundbalancesresponse.md)**
+### Errors
 
+| Error Object          | Status Code           | Content Type          |
+| --------------------- | --------------------- | --------------------- |
+| errors.WalletAPIError | 400,404,500           | application/json      |
+| errors.SDKError       | 400-600               | */*                   |
 
 ## client_prefund_request
 
@@ -88,7 +93,12 @@ if res.client_prefund_response_dto is not None:
 ### Response
 
 **[operations.ClientPrefundRequestResponse](../../models/operations/clientprefundrequestresponse.md)**
+### Errors
 
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PayinAPIError | 400,404,500          | application/json     |
+| errors.SDKError      | 400-600              | */*                  |
 
 ## fetch_client_prefund_request
 
@@ -125,4 +135,9 @@ if res.two_hundred_application_json_object is not None:
 ### Response
 
 **[operations.FetchClientPrefundRequestResponse](../../models/operations/fetchclientprefundrequestresponse.md)**
+### Errors
 
+| Error Object         | Status Code          | Content Type         |
+| -------------------- | -------------------- | -------------------- |
+| errors.PayinAPIError | 400,404,500          | application/json     |
+| errors.SDKError      | 400-600              | */*                  |

@@ -13,6 +13,7 @@ class ClientPrefundAccount:
         self.sdk_configuration = sdk_config
         
     
+    
     def client_prefund_balances(self, security: operations.ClientPrefundBalancesSecurity, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientPrefundBalancesResponse:
         r"""Client Prefund Balances
         This API allows you to fetch the available prefund balance for a client.
@@ -54,6 +55,7 @@ class ClientPrefundAccount:
 
         return res
 
+    
     
     def client_prefund_request(self, security: operations.ClientPrefundRequestSecurity, prefund_request_dto: shared.PrefundRequestDTO, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientPrefundRequestResponse:
         r"""Client Prefund Request
@@ -102,6 +104,7 @@ class ClientPrefundAccount:
 
         return res
 
+    
     
     def fetch_client_prefund_request(self, request: operations.FetchClientPrefundRequestRequest, security: operations.FetchClientPrefundRequestSecurity) -> operations.FetchClientPrefundRequestResponse:
         r"""Fetch Client Prefund Request

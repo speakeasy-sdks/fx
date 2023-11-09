@@ -43,18 +43,18 @@ if res.client_detail_response_dto2 is not None:
 ## Available Resources and Operations
 
 
-### [.client_settings](docs/sdks/clientsettings/README.md)
+### [client_settings](docs/sdks/clientsettings/README.md)
 
 * [client_details](docs/sdks/clientsettings/README.md#client_details) - Client Details
 * [fee_details](docs/sdks/clientsettings/README.md#fee_details) - Fee Details
 
-### [.client_prefund_account](docs/sdks/clientprefundaccount/README.md)
+### [client_prefund_account](docs/sdks/clientprefundaccount/README.md)
 
 * [client_prefund_balances](docs/sdks/clientprefundaccount/README.md#client_prefund_balances) - Client Prefund Balances
 * [client_prefund_request](docs/sdks/clientprefundaccount/README.md#client_prefund_request) - Client Prefund Request
 * [fetch_client_prefund_request](docs/sdks/clientprefundaccount/README.md#fetch_client_prefund_request) - Fetch Client Prefund Request
 
-### [.client_transactions](docs/sdks/clienttransactions/README.md)
+### [client_transactions](docs/sdks/clienttransactions/README.md)
 
 * [client_transactions](docs/sdks/clienttransactions/README.md#client_transactions) - Client Transactions
 <!-- End SDK Available Operations -->
@@ -66,7 +66,12 @@ if res.client_detail_response_dto2 is not None:
 <!-- Start Error Handling -->
 # Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
+
+| Error Object           | Status Code            | Content Type           |
+| ---------------------- | ---------------------- | ---------------------- |
+| errors.ProductAPIError | 400,404,500            | application/json       |
+| errors.SDKError        | 400-600                | */*                    |
 
 
 ## Example
@@ -81,8 +86,10 @@ s = fx.Fx()
 res = None
 try:
     res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+except (errors.ProductAPIError) as e:
+    print(e) # handle exception
 
-except (ProductApiError) as e:
+except (errors.SDKError) as e:
     print(e) # handle exception
 
 
@@ -149,7 +156,7 @@ if res.client_detail_response_dto2 is not None:
 The Python SDK makes API calls using the (requests)[https://pypi.org/project/requests/] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `requests.Session` object.
 
 
-For example, you could specify a header for every request that your sdk makes as follows:
+For example, you could specify a header for every request that this sdk makes as follows:
 
 ```python
 import fx
@@ -164,12 +171,11 @@ s = fx.Fx(client: http_client)
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes
 
-Your SDK supports the following security scheme globally:
+This SDK supports the following security scheme globally:
 
 | Name      | Type      | Scheme    |
 | --------- | --------- | --------- |
@@ -193,7 +199,7 @@ if res.client_detail_response_dto2 is not None:
 
 ## Per-Operation Security Schemes
 
-Some operations in your SDK require the security scheme to be specified at the request level. For example:
+Some operations in this SDK require the security scheme to be specified at the request level. For example:
 
 ```python
 import fx

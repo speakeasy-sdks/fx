@@ -13,6 +13,7 @@ class ClientSettings:
         self.sdk_configuration = sdk_config
         
     
+    
     def client_details(self, security: operations.ClientDetailsSecurity, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientDetailsResponse:
         r"""Client Details
         This API will help you to fetch the configuration details of a client.
@@ -54,6 +55,7 @@ class ClientSettings:
 
         return res
 
+    
     
     def fee_details(self, security: operations.FeeDetailsSecurity, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.FeeDetailsResponse:
         r"""Fee Details
