@@ -1,5 +1,7 @@
 # PayinAPIError
 
+BadRequest
+
 
 ## Fields
 

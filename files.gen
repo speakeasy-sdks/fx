@@ -10,6 +10,7 @@ src/fx/utils/__init__.py
 src/fx/utils/retries.py
 src/fx/utils/utils.py
 src/fx/models/errors/sdkerror.py
+tests/helpers.py
 src/fx/models/operations/clientdetails.py
 src/fx/models/operations/feedetails.py
 src/fx/models/operations/clientprefundbalances.py

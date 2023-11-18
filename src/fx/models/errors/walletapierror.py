@@ -22,6 +22,7 @@ class SchemasWalletAPIErrorStatus(str, Enum):
 
 @dataclasses.dataclass
 class WalletAPIError(Exception):
+    r"""BadRequest"""
     errors: Optional[List[str]] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('errors'), 'exclude': lambda f: f is None }})
     r"""List of errors occurred."""
     message: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('message'), 'exclude': lambda f: f is None }})

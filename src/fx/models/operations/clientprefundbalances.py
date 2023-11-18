@@ -32,7 +32,7 @@ class ClientPrefundBalancesResponse:
     r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
-    two_hundred_application_json_classes: Optional[List[shared_accountresponsedto.AccountResponseDTO]] = dataclasses.field(default=None)
+    classes: Optional[List[shared_accountresponsedto.AccountResponseDTO]] = dataclasses.field(default=None)
     r"""OK"""
     
 

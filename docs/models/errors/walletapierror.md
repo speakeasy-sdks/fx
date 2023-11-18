@@ -1,5 +1,7 @@
 # WalletAPIError
 
+BadRequest
+
 
 ## Fields
 
