@@ -41,7 +41,6 @@ src/fx/models/__init__.py
 src/fx/models/errors/__init__.py
 src/fx/models/operations/__init__.py
 src/fx/models/shared/__init__.py
-USAGE.md
 docs/models/operations/clientdetailssecurity.md
 docs/models/operations/clientdetailsrequest.md
 docs/models/operations/clientdetailsresponse.md
@@ -107,4 +106,5 @@ docs/sdks/fx/README.md
 docs/sdks/clientsettings/README.md
 docs/sdks/clientprefundaccount/README.md
 docs/sdks/clienttransactions/README.md
+USAGE.md
 .gitattributes

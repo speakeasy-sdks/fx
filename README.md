@@ -14,16 +14,17 @@ It has been generated successfully based on your OpenAPI spec. However, it is no
 - [ ] ♻️ Refine your SDK quickly by iterating locally with the [Speakeasy CLI](https://github.com/speakeasy-api/speakeasy)
 - [ ] 🎁 Publish your SDK to package managers by [configuring automatic publishing](https://www.speakeasyapi.dev/docs/productionize-sdks/publish-sdks)
 - [ ] ✨ When ready to productionize, delete this section from the README
-<!-- Start SDK Installation -->
+<!-- Start SDK Installation [installation] -->
 ## SDK Installation
 
 ```bash
 pip install git+https://github.com/speakeasy-sdks/fx.git
 ```
-<!-- End SDK Installation -->
+<!-- End SDK Installation [installation] -->
 
+<!-- Start SDK Example Usage [usage] -->
 ## SDK Example Usage
-<!-- Start SDK Example Usage -->
+
 ### Example
 
 ```python
@@ -39,11 +40,10 @@ if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->
 
-<!-- Start SDK Available Operations -->
+<!-- Start Available Resources and Operations [operations] -->
 ## Available Resources and Operations
-
 
 ### [client_settings](docs/sdks/clientsettings/README.md)
 
@@ -59,13 +59,9 @@ if res.client_detail_response_dto2 is not None:
 ### [client_transactions](docs/sdks/clienttransactions/README.md)
 
 * [client_transactions](docs/sdks/clienttransactions/README.md#client_transactions) - Client Transactions
-<!-- End SDK Available Operations -->
+<!-- End Available Resources and Operations [operations] -->
 
-<!-- Start Dev Containers -->
-
-<!-- End Dev Containers -->
-
-<!-- Start Error Handling -->
+<!-- Start Error Handling [errors] -->
 ## Error Handling
 
 Handling errors in this SDK should largely match your expectations.  All operations return a response object or raise an error.  If Error objects are specified in your OpenAPI Spec, the SDK will raise the appropriate Error type.
@@ -87,20 +83,20 @@ s = fx.Fx()
 res = None
 try:
     res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
-except (errors.ProductAPIError) as e:
-    print(e) # handle exception
-
-except (errors.SDKError) as e:
-    print(e) # handle exception
-
+except errors.ProductAPIError as e:
+    print(e)  # handle exception
+    raise(e)
+except errors.SDKError as e:
+    print(e)  # handle exception
+    raise(e)
 
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
-<!-- End Error Handling -->
+<!-- End Error Handling [errors] -->
 
-<!-- Start Server Selection -->
+<!-- Start Server Selection [server] -->
 ## Server Selection
 
 ### Select Server by Index
@@ -148,9 +144,9 @@ if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
-<!-- End Server Selection -->
+<!-- End Server Selection [server] -->
 
-<!-- Start Custom HTTP Client -->
+<!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
 The Python SDK makes API calls using the (requests)[https://pypi.org/project/requests/] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `requests.Session` object.
@@ -164,11 +160,11 @@ http_client = requests.Session()
 http_client.headers.update({'x-custom-header': 'someValue'})
 s = fx.Fx(client: http_client)
 ```
-<!-- End Custom HTTP Client -->
+<!-- End Custom HTTP Client [http-client] -->
 
 
 
-<!-- Start Authentication -->
+<!-- Start Authentication [security] -->
 ## Authentication
 
 ### Per-Client Security Schemes
@@ -180,19 +176,7 @@ This SDK supports the following security scheme globally:
 | `default` | apiKey    | API key   |
 
 To authenticate with the API the `default` parameter must be set when initializing the SDK client instance. For example:
-```python
-import fx
-from fx.models import operations
 
-s = fx.Fx()
-
-
-res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
-
-if res.client_detail_response_dto2 is not None:
-    # handle response
-    pass
-```
 
 ### Per-Operation Security Schemes
 
@@ -210,7 +194,7 @@ if res.client_detail_response_dto2 is not None:
     # handle response
     pass
 ```
-<!-- End Authentication -->
+<!-- End Authentication [security] -->
 
 <!-- Placeholder for Future Speakeasy SDK Sections -->
 
