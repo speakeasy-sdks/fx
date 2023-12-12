@@ -34,7 +34,7 @@ from fx.models import operations
 s = fx.Fx()
 
 
-res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -82,7 +82,7 @@ s = fx.Fx()
 
 res = None
 try:
-    res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+    res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 except errors.ProductAPIError as e:
     print(e)  # handle exception
     raise(e)
@@ -118,7 +118,7 @@ s = fx.Fx(
 )
 
 
-res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -138,7 +138,7 @@ s = fx.Fx(
 )
 
 
-res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -188,7 +188,7 @@ from fx.models import operations
 s = fx.Fx()
 
 
-res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response

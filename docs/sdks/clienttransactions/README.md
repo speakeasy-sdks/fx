@@ -26,7 +26,7 @@ req = operations.ClientTransactionsRequest(
     x_request_id='{{$guid}}',
 )
 
-res = s.client_transactions.client_transactions(req, "")
+res = s.client_transactions.client_transactions(req, "<YOUR_API_KEY_HERE>")
 
 if res.client_transactions_response_dto is not None:
     # handle response

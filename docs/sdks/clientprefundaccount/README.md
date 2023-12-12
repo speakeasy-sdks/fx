@@ -24,7 +24,7 @@ from fx.models import operations
 s = fx.Fx()
 
 
-res = s.client_prefund_account.client_prefund_balances("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_prefund_account.client_prefund_balances("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.classes is not None:
     # handle response
@@ -63,7 +63,7 @@ from fx.models import operations, shared
 s = fx.Fx()
 
 
-res = s.client_prefund_account.client_prefund_request("", prefund_request_dto=shared.PrefundRequestDTO(
+res = s.client_prefund_account.client_prefund_request("<YOUR_API_KEY_HERE>", prefund_request_dto=shared.PrefundRequestDTO(
     amount=1000,
     bank_reference_number='712347512376',
     bene_account_number='800207849',
@@ -117,7 +117,7 @@ req = operations.FetchClientPrefundRequestRequest(
     x_request_id='{{$guid}}',
 )
 
-res = s.client_prefund_account.fetch_client_prefund_request(req, "")
+res = s.client_prefund_account.fetch_client_prefund_request(req, "<YOUR_API_KEY_HERE>")
 
 if res.object is not None:
     # handle response

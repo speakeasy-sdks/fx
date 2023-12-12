@@ -71,7 +71,7 @@ class ClientPrefundAccount:
         
         url = utils.generate_url(operations.ClientPrefundRequestRequest, base_url, '/api/v1/client/{clientHashId}/prefund', request)
         headers = utils.get_headers(request)
-        req_content_type, data, form = utils.serialize_request_body(request, "prefund_request_dto", False, False, 'json')
+        req_content_type, data, form = utils.serialize_request_body(request, operations.ClientPrefundRequestRequest, "prefund_request_dto", False, False, 'json')
         if req_content_type not in ('multipart/form-data', 'multipart/mixed'):
             headers['content-type'] = req_content_type
         if data is None and form is None:

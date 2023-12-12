@@ -23,7 +23,7 @@ from fx.models import operations
 s = fx.Fx()
 
 
-res = s.client_settings.client_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -63,7 +63,7 @@ from fx.models import operations
 s = fx.Fx()
 
 
-res = s.client_settings.fee_details("", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.fee_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.classes is not None:
     # handle response

@@ -7,7 +7,7 @@ from .client_transactions import ClientTransactions
 from .sdkconfiguration import SDKConfiguration
 from fx import utils
 from fx.models import shared
-from typing import Callable, Dict, Union
+from typing import Dict
 
 class Fx:
     r"""NIUM Platform: NIUM Platform"""
@@ -21,7 +21,7 @@ class Fx:
     sdk_configuration: SDKConfiguration
 
     def __init__(self,
-                 default: Union[str,Callable[[], str]],
+                 default: str ,
                  server_idx: int = None,
                  server_url: str = None,
                  url_params: Dict[str, str] = None,
