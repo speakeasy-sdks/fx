@@ -49,4 +49,4 @@ if res.client_transactions_response_dto is not None:
 | Error Object          | Status Code           | Content Type          |
 | --------------------- | --------------------- | --------------------- |
 | errors.WalletAPIError | 400,404,500           | application/json      |
-| errors.SDKError       | 400-600               | */*                   |
+| errors.SDKError       | 4x-5xx                | */*                   |

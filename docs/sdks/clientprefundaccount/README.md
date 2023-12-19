@@ -48,7 +48,7 @@ if res.classes is not None:
 | Error Object          | Status Code           | Content Type          |
 | --------------------- | --------------------- | --------------------- |
 | errors.WalletAPIError | 400,404,500           | application/json      |
-| errors.SDKError       | 400-600               | */*                   |
+| errors.SDKError       | 4x-5xx                | */*                   |
 
 ## client_prefund_request
 
@@ -98,7 +98,7 @@ if res.client_prefund_response_dto is not None:
 | Error Object         | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
 | errors.PayinAPIError | 400,404,500          | application/json     |
-| errors.SDKError      | 400-600              | */*                  |
+| errors.SDKError      | 4x-5xx               | */*                  |
 
 ## fetch_client_prefund_request
 
@@ -140,4 +140,4 @@ if res.object is not None:
 | Error Object         | Status Code          | Content Type         |
 | -------------------- | -------------------- | -------------------- |
 | errors.PayinAPIError | 400,404,500          | application/json     |
-| errors.SDKError      | 400-600              | */*                  |
+| errors.SDKError      | 4x-5xx               | */*                  |

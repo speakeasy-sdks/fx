@@ -47,7 +47,7 @@ if res.client_detail_response_dto2 is not None:
 | Error Object           | Status Code            | Content Type           |
 | ---------------------- | ---------------------- | ---------------------- |
 | errors.ProductAPIError | 400,404,500            | application/json       |
-| errors.SDKError        | 400-600                | */*                    |
+| errors.SDKError        | 4x-5xx                 | */*                    |
 
 ## fee_details
 
@@ -87,4 +87,4 @@ if res.classes is not None:
 | Error Object          | Status Code           | Content Type          |
 | --------------------- | --------------------- | --------------------- |
 | errors.WalletAPIError | 400,404,500           | application/json      |
-| errors.SDKError       | 400-600               | */*                   |
+| errors.SDKError       | 4x-5xx                | */*                   |
