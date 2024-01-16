@@ -4,7 +4,7 @@ management:
   docChecksum: 86d7466bdd8b67fe064563c11eda0bd3
   docVersion: 10.27.2023
   speakeasyVersion: internal
-  generationVersion: 2.228.1
+  generationVersion: 2.233.2
   releaseVersion: 0.4.2
   configChecksum: 4459b767efdda4c81886f87f0ad030e3
   repoURL: https://github.com/speakeasy-sdks/fx.git
