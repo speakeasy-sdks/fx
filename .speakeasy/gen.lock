@@ -4,16 +4,16 @@ management:
   docChecksum: 86d7466bdd8b67fe064563c11eda0bd3
   docVersion: 10.27.2023
   speakeasyVersion: internal
-  generationVersion: 2.237.2
-  releaseVersion: 0.4.4
-  configChecksum: e783265c7e62bb27e5a38a3ca1236095
+  generationVersion: 2.245.1
+  releaseVersion: 0.4.5
+  configChecksum: 88662c54b4a786db6a63a707e116bde6
   repoURL: https://github.com/speakeasy-sdks/fx.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/fx.git
 features:
   python:
     constsAndDefaults: 0.1.2
-    core: 4.4.2
+    core: 4.4.3
     flattening: 2.81.1
     globalSecurity: 2.83.2
     globalServerURLs: 2.82.1
