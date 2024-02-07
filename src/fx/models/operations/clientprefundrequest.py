@@ -17,10 +17,10 @@ class ClientPrefundRequestSecurity:
 
 @dataclasses.dataclass
 class ClientPrefundRequestRequest:
-    client_hash_id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'clientHashId', 'style': 'simple', 'explode': False }})
-    r"""Unique client identifier generated and shared before API handshake."""
     prefund_request_dto: shared_prefundrequestdto.PrefundRequestDTO = dataclasses.field(metadata={'request': { 'media_type': 'application/json' }})
     r"""prefundRequestDTO"""
+    client_hash_id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'clientHashId', 'style': 'simple', 'explode': False }})
+    r"""Unique client identifier generated and shared before API handshake."""
     x_request_id: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'x-request-id', 'style': 'simple', 'explode': False }})
     r"""Enter a unique UUID value"""
     
@@ -31,10 +31,10 @@ class ClientPrefundRequestRequest:
 class ClientPrefundRequestResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     client_prefund_response_dto: Optional[shared_clientprefundresponsedto.ClientPrefundResponseDTO] = dataclasses.field(default=None)
     r"""OK"""
     

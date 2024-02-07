@@ -91,12 +91,12 @@ class ClientTransactionsRequest:
     r"""This parameter can filter the transactions, based on the approximating value of tagValue(that may be mapped for a tagKey defined against transactions). This can be used as an independent search parameter."""
     transaction_currency: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'transactionCurrency', 'style': 'form', 'explode': True }})
     r"""This field contains the 3-letter [ISO-4217 transaction currency code](https://www.iso.org/iso-4217-currency-codes.html)."""
+    transaction_type: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'transactionType', 'style': 'form', 'explode': True }})
+    r"""This field contains the transaction can be one of the complete list of transactions mentioned in [Glossary of Transaction Types](https://docs.nium.com/baas/get-transactions#glossary-of-transaction-types)."""
     transactions_labels_key: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'transactionsLabelsKey', 'style': 'form', 'explode': True }})
     r"""This parameter can filter the transactions based on transactionsLabelsKey."""
     transactions_labels_value: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'transactionsLabelsValue', 'style': 'form', 'explode': True }})
     r"""This parameter can filter the transactions based on transactionsLabelsValue."""
-    transaction_type: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'transactionType', 'style': 'form', 'explode': True }})
-    r"""This field contains the transaction can be one of the complete list of transactions mentioned in [Glossary of Transaction Types](https://docs.nium.com/baas/get-transactions#glossary-of-transaction-types)."""
     wallet_hash_id: Optional[str] = dataclasses.field(default=None, metadata={'query_param': { 'field_name': 'walletHashId', 'style': 'form', 'explode': True }})
     r"""Unique wallet identifier generated simultaneously with customer creation."""
     x_request_id: Optional[str] = dataclasses.field(default=None, metadata={'header': { 'field_name': 'x-request-id', 'style': 'simple', 'explode': False }})
@@ -109,10 +109,10 @@ class ClientTransactionsRequest:
 class ClientTransactionsResponse:
     content_type: str = dataclasses.field()
     r"""HTTP response content type for this operation"""
-    raw_response: requests_http.Response = dataclasses.field()
-    r"""Raw HTTP response; suitable for custom response parsing"""
     status_code: int = dataclasses.field()
     r"""HTTP response status code for this operation"""
+    raw_response: requests_http.Response = dataclasses.field()
+    r"""Raw HTTP response; suitable for custom response parsing"""
     client_transactions_response_dto: Optional[shared_clienttransactionsresponsedto.ClientTransactionsResponseDTO] = dataclasses.field(default=None)
     r"""OK"""
     

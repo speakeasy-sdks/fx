@@ -65,11 +65,11 @@ s = fx.Fx()
 
 res = s.client_prefund_account.client_prefund_request("<YOUR_API_KEY_HERE>", prefund_request_dto=shared.PrefundRequestDTO(
     amount=1000,
+    currency_code='SGD',
     bank_reference_number='712347512376',
     bene_account_number='800207849',
     client_account_number='615234671328',
     comments='Client Prefund',
-    currency_code='SGD',
     date_of_transfer='2019-11-24',
     nium_account_number='133876812367',
     requester_id='8123768123',

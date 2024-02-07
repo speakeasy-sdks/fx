@@ -78,10 +78,10 @@ class ClientDetailResponseDto2:
     r"""This is an array objects which holds currency details."""
     currency_authorization_type: Optional[CurrencyAuthorizationType] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('currencyAuthorizationType'), 'exclude': lambda f: f is None }})
     r"""This field denotes the authorization type of a client. The valid values are SINGLE, DUAL, MULTI, and AUTO_SWEEP."""
-    customer_auth_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customerAuthUrl'), 'exclude': lambda f: f is None }})
-    r"""This field contains the customer authorization URL."""
     custom_fee_enabled: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customFeeEnabled'), 'exclude': lambda f: f is None }})
     r"""This field contains the client preference to levy custom fee."""
+    customer_auth_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('customerAuthUrl'), 'exclude': lambda f: f is None }})
+    r"""This field contains the customer authorization URL."""
     deduplication_flag: Optional[bool] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('deduplicationFlag'), 'exclude': lambda f: f is None }})
     r"""This field contains the mobile/email uniqueness flag."""
     ekyc_redirect_url: Optional[str] = dataclasses.field(default=None, metadata={'dataclasses_json': { 'letter_case': utils.get_field_name('ekycRedirectUrl'), 'exclude': lambda f: f is None }})
