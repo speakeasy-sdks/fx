@@ -1,7 +1,6 @@
 <!-- Start SDK Example Usage [usage] -->
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx()
 

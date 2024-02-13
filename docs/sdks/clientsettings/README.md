@@ -18,7 +18,6 @@ This API will help you to fetch the configuration details of a client.
 
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx()
 
@@ -58,7 +57,6 @@ Refer to the following [Fees User Guide](doc:fees) for the Glossary of Fees for 
 
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx()
 

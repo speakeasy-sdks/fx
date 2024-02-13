@@ -29,7 +29,6 @@ pip install git+https://github.com/speakeasy-sdks/fx.git
 
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx()
 
@@ -75,7 +74,7 @@ Handling errors in this SDK should largely match your expectations.  All operati
 
 ```python
 import fx
-from fx.models import operations
+from fx.models import errors
 
 s = fx.Fx()
 
@@ -84,10 +83,10 @@ res = None
 try:
     res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 except errors.ProductAPIError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 except errors.SDKError as e:
-    print(e)  # handle exception
+    # handle exception
     raise(e)
 
 if res.client_detail_response_dto2 is not None:
@@ -111,7 +110,6 @@ You can override the default server globally by passing a server index to the `s
 
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx(
     server_idx=0,
@@ -131,7 +129,6 @@ if res.client_detail_response_dto2 is not None:
 The default server can also be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx(
     server_url="https://gatewaysandbox.nium.com/",
@@ -183,7 +180,6 @@ To authenticate with the API the `default` parameter must be set when initializi
 Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx()
 

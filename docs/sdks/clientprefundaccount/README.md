@@ -19,7 +19,6 @@ This API allows you to fetch the available prefund balance for a client.
 
 ```python
 import fx
-from fx.models import operations
 
 s = fx.Fx()
 
@@ -58,7 +57,7 @@ This API allows our clients to raise a prefund request in the system.
 
 ```python
 import fx
-from fx.models import operations, shared
+from fx.models import shared
 
 s = fx.Fx()
 
