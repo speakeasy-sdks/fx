@@ -27,6 +27,7 @@ res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -66,6 +67,7 @@ res = s.client_settings.fee_details("<YOUR_API_KEY_HERE>", client_hash_id='{{cli
 if res.classes is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

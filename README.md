@@ -38,6 +38,7 @@ res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
+
 ```
 <!-- End SDK Example Usage [usage] -->
 
@@ -92,6 +93,7 @@ except errors.SDKError as e:
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
+
 ```
 <!-- End Error Handling [errors] -->
 
@@ -121,6 +123,7 @@ res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
+
 ```
 
 
@@ -140,6 +143,7 @@ res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
+
 ```
 <!-- End Server Selection [server] -->
 
@@ -189,6 +193,7 @@ res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{
 if res.client_detail_response_dto2 is not None:
     # handle response
     pass
+
 ```
 <!-- End Authentication [security] -->
 

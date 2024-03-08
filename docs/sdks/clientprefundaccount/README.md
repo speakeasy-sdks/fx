@@ -28,6 +28,7 @@ res = s.client_prefund_account.client_prefund_balances("<YOUR_API_KEY_HERE>", cl
 if res.classes is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -77,6 +78,7 @@ res = s.client_prefund_account.client_prefund_request("<YOUR_API_KEY_HERE>", pre
 if res.client_prefund_response_dto is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters
@@ -121,6 +123,7 @@ res = s.client_prefund_account.fetch_client_prefund_request(req, "<YOUR_API_KEY_
 if res.object is not None:
     # handle response
     pass
+
 ```
 
 ### Parameters

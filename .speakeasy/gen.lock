@@ -3,27 +3,29 @@ id: 284d3874-3fab-4a9c-b3fd-e6cfdf593f34
 management:
   docChecksum: 86d7466bdd8b67fe064563c11eda0bd3
   docVersion: 10.27.2023
-  speakeasyVersion: internal
-  generationVersion: 2.275.4
-  releaseVersion: 0.7.0
-  configChecksum: 2de4eefffc7b3c28ddf9557dd5d366cc
+  speakeasyVersion: 1.204.1
+  generationVersion: 2.279.1
+  releaseVersion: 0.8.0
+  configChecksum: c1977b48069e6b588a683a4c76c67233
   repoURL: https://github.com/speakeasy-sdks/fx.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/fx.git
 features:
   python:
-    constsAndDefaults: 0.1.2
-    core: 4.5.0
+    constsAndDefaults: 0.1.3
+    core: 4.5.1
     flattening: 2.81.1
     globalSecurity: 2.83.4
     globalServerURLs: 2.82.1
     methodSecurity: 2.82.1
+    responseFormat: 0.1.0
 generatedFiles:
   - src/fx/sdkconfiguration.py
   - src/fx/client_settings.py
   - src/fx/client_prefund_account.py
   - src/fx/client_transactions.py
   - src/fx/sdk.py
+  - py.typed
   - pylintrc
   - setup.py
   - src/fx/__init__.py
