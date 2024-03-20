@@ -9,13 +9,6 @@ from typing import Optional
 
 
 @dataclasses.dataclass
-class ClientPrefundRequestSecurity:
-    default: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' }})
-    
-
-
-
-@dataclasses.dataclass
 class ClientPrefundRequestRequest:
     prefund_request_dto: shared_prefundrequestdto.PrefundRequestDTO = dataclasses.field(metadata={'request': { 'media_type': 'application/json' }})
     r"""prefundRequestDTO"""

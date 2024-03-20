@@ -20,10 +20,12 @@ This API allows you to fetch the available prefund balance for a client.
 ```python
 import fx
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
-res = s.client_prefund_account.client_prefund_balances("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_prefund_account.client_prefund_balances(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.classes is not None:
     # handle response
@@ -33,11 +35,10 @@ if res.classes is not None:
 
 ### Parameters
 
-| Parameter                                                                                            | Type                                                                                                 | Required                                                                                             | Description                                                                                          | Example                                                                                              |
-| ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `security`                                                                                           | [operations.ClientPrefundBalancesSecurity](../../models/operations/clientprefundbalancessecurity.md) | :heavy_check_mark:                                                                                   | The security requirements to use for the request.                                                    |                                                                                                      |
-| `client_hash_id`                                                                                     | *str*                                                                                                | :heavy_check_mark:                                                                                   | Unique client identifier generated and shared before API handshake.                                  | {{clientHashId}}                                                                                     |
-| `x_request_id`                                                                                       | *Optional[str]*                                                                                      | :heavy_minus_sign:                                                                                   | Enter a unique UUID value                                                                            | {{$guid}}                                                                                            |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `client_hash_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | Unique client identifier generated and shared before API handshake. | {{clientHashId}}                                                    |
+| `x_request_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Enter a unique UUID value                                           | {{$guid}}                                                           |
 
 
 ### Response
@@ -60,10 +61,12 @@ This API allows our clients to raise a prefund request in the system.
 import fx
 from fx.models import shared
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
-res = s.client_prefund_account.client_prefund_request("<YOUR_API_KEY_HERE>", prefund_request_dto=shared.PrefundRequestDTO(
+res = s.client_prefund_account.client_prefund_request(prefund_request_dto=shared.PrefundRequestDTO(
     amount=1000,
     currency_code='SGD',
     bank_reference_number='712347512376',
@@ -83,12 +86,11 @@ if res.client_prefund_response_dto is not None:
 
 ### Parameters
 
-| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        | Example                                                                                            |
-| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| `security`                                                                                         | [operations.ClientPrefundRequestSecurity](../../models/operations/clientprefundrequestsecurity.md) | :heavy_check_mark:                                                                                 | The security requirements to use for the request.                                                  |                                                                                                    |
-| `prefund_request_dto`                                                                              | [shared.PrefundRequestDTO](../../models/shared/prefundrequestdto.md)                               | :heavy_check_mark:                                                                                 | prefundRequestDTO                                                                                  |                                                                                                    |
-| `client_hash_id`                                                                                   | *str*                                                                                              | :heavy_check_mark:                                                                                 | Unique client identifier generated and shared before API handshake.                                | {{clientHashId}}                                                                                   |
-| `x_request_id`                                                                                     | *Optional[str]*                                                                                    | :heavy_minus_sign:                                                                                 | Enter a unique UUID value                                                                          | {{$guid}}                                                                                          |
+| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          | Example                                                              |
+| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| `prefund_request_dto`                                                | [shared.PrefundRequestDTO](../../models/shared/prefundrequestdto.md) | :heavy_check_mark:                                                   | prefundRequestDTO                                                    |                                                                      |
+| `client_hash_id`                                                     | *str*                                                                | :heavy_check_mark:                                                   | Unique client identifier generated and shared before API handshake.  | {{clientHashId}}                                                     |
+| `x_request_id`                                                       | *Optional[str]*                                                      | :heavy_minus_sign:                                                   | Enter a unique UUID value                                            | {{$guid}}                                                            |
 
 
 ### Response
@@ -111,14 +113,16 @@ This API allows you to fetch the details of client prefund requests.
 import fx
 from fx.models import operations
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 req = operations.FetchClientPrefundRequestRequest(
     client_hash_id='{{clientHashId}}',
     x_request_id='{{$guid}}',
 )
 
-res = s.client_prefund_account.fetch_client_prefund_request(req, "<YOUR_API_KEY_HERE>")
+res = s.client_prefund_account.fetch_client_prefund_request(req)
 
 if res.object is not None:
     # handle response
@@ -128,10 +132,9 @@ if res.object is not None:
 
 ### Parameters
 
-| Parameter                                                                                                    | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `request`                                                                                                    | [operations.FetchClientPrefundRequestRequest](../../models/operations/fetchclientprefundrequestrequest.md)   | :heavy_check_mark:                                                                                           | The request object to use for the request.                                                                   |
-| `security`                                                                                                   | [operations.FetchClientPrefundRequestSecurity](../../models/operations/fetchclientprefundrequestsecurity.md) | :heavy_check_mark:                                                                                           | The security requirements to use for the request.                                                            |
+| Parameter                                                                                                  | Type                                                                                                       | Required                                                                                                   | Description                                                                                                |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                  | [operations.FetchClientPrefundRequestRequest](../../models/operations/fetchclientprefundrequestrequest.md) | :heavy_check_mark:                                                                                         | The request object to use for the request.                                                                 |
 
 
 ### Response

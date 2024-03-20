@@ -7,13 +7,6 @@ from typing import Optional
 
 
 @dataclasses.dataclass
-class FetchClientPrefundRequestSecurity:
-    default: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' }})
-    
-
-
-
-@dataclasses.dataclass
 class FetchClientPrefundRequestRequest:
     client_hash_id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'clientHashId', 'style': 'simple', 'explode': False }})
     r"""Unique client Id assigned to the client during the onboarding process."""

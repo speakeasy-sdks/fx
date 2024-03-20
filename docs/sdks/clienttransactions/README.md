@@ -19,14 +19,16 @@ This API allows you to fetch transaction details at the client level.
 import fx
 from fx.models import operations
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 req = operations.ClientTransactionsRequest(
     client_hash_id='{{clientHashId}}',
     x_request_id='{{$guid}}',
 )
 
-res = s.client_transactions.client_transactions(req, "<YOUR_API_KEY_HERE>")
+res = s.client_transactions.client_transactions(req)
 
 if res.client_transactions_response_dto is not None:
     # handle response
@@ -36,10 +38,9 @@ if res.client_transactions_response_dto is not None:
 
 ### Parameters
 
-| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
-| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| `request`                                                                                      | [operations.ClientTransactionsRequest](../../models/operations/clienttransactionsrequest.md)   | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
-| `security`                                                                                     | [operations.ClientTransactionsSecurity](../../models/operations/clienttransactionssecurity.md) | :heavy_check_mark:                                                                             | The security requirements to use for the request.                                              |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ClientTransactionsRequest](../../models/operations/clienttransactionsrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
 
 
 ### Response

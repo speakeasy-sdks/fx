@@ -8,13 +8,6 @@ from typing import List, Optional
 
 
 @dataclasses.dataclass
-class FeeDetailsSecurity:
-    default: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' }})
-    
-
-
-
-@dataclasses.dataclass
 class FeeDetailsRequest:
     client_hash_id: str = dataclasses.field(metadata={'path_param': { 'field_name': 'clientHashId', 'style': 'simple', 'explode': False }})
     r"""Unique client identifier generated and shared before API handshake."""

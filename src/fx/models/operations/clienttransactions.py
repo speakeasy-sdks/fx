@@ -7,13 +7,6 @@ from ...models.shared import clienttransactionsresponsedto as shared_clienttrans
 from enum import Enum
 from typing import Optional
 
-
-@dataclasses.dataclass
-class ClientTransactionsSecurity:
-    default: str = dataclasses.field(metadata={'security': { 'scheme': True, 'type': 'apiKey', 'sub_type': 'header', 'field_name': 'x-api-key' }})
-    
-
-
 class Order(str, Enum):
     r"""The sort order for the results."""
     ASC = 'ASC'

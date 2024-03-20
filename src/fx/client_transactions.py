@@ -16,16 +16,19 @@ class ClientTransactions:
         
     
     
-    def client_transactions(self, request: operations.ClientTransactionsRequest, security: operations.ClientTransactionsSecurity) -> operations.ClientTransactionsResponse:
+    def client_transactions(self, request: operations.ClientTransactionsRequest) -> operations.ClientTransactionsResponse:
         r"""Client Transactions
         This API allows you to fetch transaction details at the client level.
         """
-        hook_ctx = HookContext(operation_id='ClientTransactions', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='ClientTransactions', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = utils.generate_url(operations.ClientTransactionsRequest, base_url, '/api/v1/client/{clientHashId}/transactions', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         query_params = { **utils.get_query_params(operations.ClientTransactionsRequest, request), **query_params }

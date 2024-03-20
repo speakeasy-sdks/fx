@@ -19,10 +19,12 @@ This API will help you to fetch the configuration details of a client.
 ```python
 import fx
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
-res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -32,11 +34,10 @@ if res.client_detail_response_dto2 is not None:
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          | Example                                                                              |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `security`                                                                           | [operations.ClientDetailsSecurity](../../models/operations/clientdetailssecurity.md) | :heavy_check_mark:                                                                   | The security requirements to use for the request.                                    |                                                                                      |
-| `client_hash_id`                                                                     | *str*                                                                                | :heavy_check_mark:                                                                   | Unique client identifier generated and shared before API handshake.                  | {{clientHashId}}                                                                     |
-| `x_request_id`                                                                       | *Optional[str]*                                                                      | :heavy_minus_sign:                                                                   | Enter a unique UUID value                                                            | {{$guid}}                                                                            |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `client_hash_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | Unique client identifier generated and shared before API handshake. | {{clientHashId}}                                                    |
+| `x_request_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Enter a unique UUID value                                           | {{$guid}}                                                           |
 
 
 ### Response
@@ -59,10 +60,12 @@ Refer to the following [Fees User Guide](doc:fees) for the Glossary of Fees for 
 ```python
 import fx
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
-res = s.client_settings.fee_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.fee_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.classes is not None:
     # handle response
@@ -72,11 +75,10 @@ if res.classes is not None:
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    | Example                                                                        |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `security`                                                                     | [operations.FeeDetailsSecurity](../../models/operations/feedetailssecurity.md) | :heavy_check_mark:                                                             | The security requirements to use for the request.                              |                                                                                |
-| `client_hash_id`                                                               | *str*                                                                          | :heavy_check_mark:                                                             | Unique client identifier generated and shared before API handshake.            | {{clientHashId}}                                                               |
-| `x_request_id`                                                                 | *Optional[str]*                                                                | :heavy_minus_sign:                                                             | Enter a unique UUID value                                                      | {{$guid}}                                                                      |
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `client_hash_id`                                                    | *str*                                                               | :heavy_check_mark:                                                  | Unique client identifier generated and shared before API handshake. | {{clientHashId}}                                                    |
+| `x_request_id`                                                      | *Optional[str]*                                                     | :heavy_minus_sign:                                                  | Enter a unique UUID value                                           | {{$guid}}                                                           |
 
 
 ### Response

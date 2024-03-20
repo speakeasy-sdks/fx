@@ -30,10 +30,12 @@ pip install git+https://github.com/speakeasy-sdks/fx.git
 ```python
 import fx
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
-res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -77,12 +79,14 @@ Handling errors in this SDK should largely match your expectations.  All operati
 import fx
 from fx.models import errors
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
 res = None
 try:
-    res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+    res = s.client_settings.client_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 except errors.ProductAPIError as e:
     # handle exception
     raise(e)
@@ -115,10 +119,11 @@ import fx
 
 s = fx.Fx(
     server_idx=0,
+    default="<YOUR_API_KEY_HERE>",
 )
 
 
-res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -135,10 +140,11 @@ import fx
 
 s = fx.Fx(
     server_url="https://gatewaysandbox.nium.com/",
+    default="<YOUR_API_KEY_HERE>",
 )
 
 
-res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response
@@ -177,18 +183,15 @@ This SDK supports the following security scheme globally:
 | `default` | apiKey    | API key   |
 
 To authenticate with the API the `default` parameter must be set when initializing the SDK client instance. For example:
-
-
-### Per-Operation Security Schemes
-
-Some operations in this SDK require the security scheme to be specified at the request level. For example:
 ```python
 import fx
 
-s = fx.Fx()
+s = fx.Fx(
+    default="<YOUR_API_KEY_HERE>",
+)
 
 
-res = s.client_settings.client_details("<YOUR_API_KEY_HERE>", client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
+res = s.client_settings.client_details(client_hash_id='{{clientHashId}}', x_request_id='{{$guid}}')
 
 if res.client_detail_response_dto2 is not None:
     # handle response

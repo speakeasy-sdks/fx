@@ -16,11 +16,11 @@ class ClientPrefundAccount:
         
     
     
-    def client_prefund_balances(self, security: operations.ClientPrefundBalancesSecurity, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientPrefundBalancesResponse:
+    def client_prefund_balances(self, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientPrefundBalancesResponse:
         r"""Client Prefund Balances
         This API allows you to fetch the available prefund balance for a client.
         """
-        hook_ctx = HookContext(operation_id='ClientPrefundBalances', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='ClientPrefundBalances', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         request = operations.ClientPrefundBalancesRequest(
             client_hash_id=client_hash_id,
             x_request_id=x_request_id,
@@ -30,7 +30,10 @@ class ClientPrefundAccount:
         
         url = utils.generate_url(operations.ClientPrefundBalancesRequest, base_url, '/api/v1/client/{clientHashId}/balances', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         headers['Accept'] = 'application/json'
@@ -83,11 +86,11 @@ class ClientPrefundAccount:
 
     
     
-    def client_prefund_request(self, security: operations.ClientPrefundRequestSecurity, prefund_request_dto: shared.PrefundRequestDTO, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientPrefundRequestResponse:
+    def client_prefund_request(self, prefund_request_dto: shared.PrefundRequestDTO, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientPrefundRequestResponse:
         r"""Client Prefund Request
         This API allows our clients to raise a prefund request in the system.
         """
-        hook_ctx = HookContext(operation_id='ClientPrefundRequest', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='ClientPrefundRequest', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         request = operations.ClientPrefundRequestRequest(
             prefund_request_dto=prefund_request_dto,
             client_hash_id=client_hash_id,
@@ -98,7 +101,10 @@ class ClientPrefundAccount:
         
         url = utils.generate_url(operations.ClientPrefundRequestRequest, base_url, '/api/v1/client/{clientHashId}/prefund', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         req_content_type, data, form = utils.serialize_request_body(request, operations.ClientPrefundRequestRequest, "prefund_request_dto", False, False, 'json')
@@ -156,16 +162,19 @@ class ClientPrefundAccount:
 
     
     
-    def fetch_client_prefund_request(self, request: operations.FetchClientPrefundRequestRequest, security: operations.FetchClientPrefundRequestSecurity) -> operations.FetchClientPrefundRequestResponse:
+    def fetch_client_prefund_request(self, request: operations.FetchClientPrefundRequestRequest) -> operations.FetchClientPrefundRequestResponse:
         r"""Fetch Client Prefund Request
         This API allows you to fetch the details of client prefund requests.
         """
-        hook_ctx = HookContext(operation_id='FetchClientPrefundRequest', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='FetchClientPrefundRequest', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         base_url = utils.template_url(*self.sdk_configuration.get_server_details())
         
         url = utils.generate_url(operations.FetchClientPrefundRequestRequest, base_url, '/api/v1/client/{clientHashId}/prefundList', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         query_params = { **utils.get_query_params(operations.FetchClientPrefundRequestRequest, request), **query_params }

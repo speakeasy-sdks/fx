@@ -7,4 +7,4 @@ from .clienttransactions import *
 from .feedetails import *
 from .fetchclientprefundrequest import *
 
-__all__ = ["ClientDetailsRequest","ClientDetailsResponse","ClientDetailsSecurity","ClientPrefundBalancesRequest","ClientPrefundBalancesResponse","ClientPrefundBalancesSecurity","ClientPrefundRequestRequest","ClientPrefundRequestResponse","ClientPrefundRequestSecurity","ClientTransactionsRequest","ClientTransactionsResponse","ClientTransactionsSecurity","FeeDetailsRequest","FeeDetailsResponse","FeeDetailsSecurity","FetchClientPrefundRequestRequest","FetchClientPrefundRequestResponse","FetchClientPrefundRequestResponseBody","FetchClientPrefundRequestSecurity","Order","Status"]
+__all__ = ["ClientDetailsRequest","ClientDetailsResponse","ClientPrefundBalancesRequest","ClientPrefundBalancesResponse","ClientPrefundRequestRequest","ClientPrefundRequestResponse","ClientTransactionsRequest","ClientTransactionsResponse","FeeDetailsRequest","FeeDetailsResponse","FetchClientPrefundRequestRequest","FetchClientPrefundRequestResponse","FetchClientPrefundRequestResponseBody","Order","Status"]

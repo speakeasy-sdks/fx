@@ -16,11 +16,11 @@ class ClientSettings:
         
     
     
-    def client_details(self, security: operations.ClientDetailsSecurity, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientDetailsResponse:
+    def client_details(self, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.ClientDetailsResponse:
         r"""Client Details
         This API will help you to fetch the configuration details of a client.
         """
-        hook_ctx = HookContext(operation_id='ClientDetails', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='ClientDetails', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         request = operations.ClientDetailsRequest(
             client_hash_id=client_hash_id,
             x_request_id=x_request_id,
@@ -30,7 +30,10 @@ class ClientSettings:
         
         url = utils.generate_url(operations.ClientDetailsRequest, base_url, '/api/v1/client/{clientHashId}', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         headers['Accept'] = 'application/json'
@@ -83,12 +86,12 @@ class ClientSettings:
 
     
     
-    def fee_details(self, security: operations.FeeDetailsSecurity, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.FeeDetailsResponse:
+    def fee_details(self, client_hash_id: str, x_request_id: Optional[str] = None) -> operations.FeeDetailsResponse:
         r"""Fee Details
         This API provides all the fees that have been set at the client level by NIUM.
         Refer to the following [Fees User Guide](doc:fees) for the Glossary of Fees for pre-defined fees supported on the system
         """
-        hook_ctx = HookContext(operation_id='FeeDetails', oauth2_scopes=[], security_source=security)
+        hook_ctx = HookContext(operation_id='FeeDetails', oauth2_scopes=[], security_source=self.sdk_configuration.security)
         request = operations.FeeDetailsRequest(
             client_hash_id=client_hash_id,
             x_request_id=x_request_id,
@@ -98,7 +101,10 @@ class ClientSettings:
         
         url = utils.generate_url(operations.FeeDetailsRequest, base_url, '/api/v2/client/{clientHashId}/fees', request)
         
-        headers, query_params = utils.get_security(security)
+        if callable(self.sdk_configuration.security):
+            headers, query_params = utils.get_security(self.sdk_configuration.security())
+        else:
+            headers, query_params = utils.get_security(self.sdk_configuration.security)
         
         headers = { **utils.get_headers(request), **headers }
         headers['Accept'] = 'application/json'
